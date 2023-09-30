@@ -101,11 +101,75 @@
                 Console.WriteLine(" Название магазина : " + _nome + "\n Описание : " + _descr + "\n Адрес : " + _adress + "\n Телефон : " + _tel + "\n Email : " + _email);
             }
         }
+        class Website
+        {
+            string _nome;
+            string _url;
+            string _ob;
+            string _ip;
+            public string nome
+            {
+                get { return _nome; }
+                set { _nome = value; }
+            }
+            public string url
+            {
+                get { return _url; }
+                set { _url = value; }
+            }
+            public string ob
+            {
+                get { return _ob; }
+                set { _ob = value; }
+            }
+            public string ip
+            {
+                get { return _ip; }
+                set { _ip = value; }
+            }
+            public Website()
+            {
+                _nome = "niente";
+                _url = "niente";
+                _ob = "niente";
+                _ip = "niente";
+            }
+            public Website(string nome, string url, string ob, string ip)
+            {
+                this._nome = nome;
+                this._url = url;
+                this._ob = ob;
+                this._ip = ip;
+            }
+
+            public void Mostra()
+            {
+                Console.WriteLine("\n Имя сайта : " + _nome + "\n адрес сайта : " + _url + "\n описание сайта : " + _ob + "\n ip сайта : " + _ip);
+            }
+        }
         static void Main(string[] args)
         {
-           // задание 2 - уже было
+            // задание 2
+            Console.WriteLine("Введите число : ");
+            string? cislo = Console.ReadLine();
+            bool proverka(string str)
+            {
+                for (int i = 0; i < str.Length / 2; ++i)
+                {
+                    if (str[i] != str[str.Length - 1 - i]) { return false; }
+                }
+                return true;
+            }
+            Console.WriteLine("Проверка на палиндром " + proverka(cislo));
 
-           // задание 4 - уже было
+            // задание 4
+            Website site = new Website();
+            site.Mostra();
+            site.nome = "aaaaaaa";
+            site.url = "bbbbbbb";
+            site.ob = "ccccccc";
+            site.ip = "ddddddd";
+            site.Mostra();
 
             // задание 5
             Journal journal = new Journal();
@@ -113,6 +177,8 @@
             journal.nome = "Figaro";journal.ans = 1990;journal.descr = "Очень смешной";journal.tel = "88009003000";journal.email = "fig@figaro.fr";
             journal.Mostra();
             Console.WriteLine();
+
+            // 6
             Magaz magaz = new Magaz();
             magaz.Mostra();
             magaz.nome = "Metro";magaz.descr = "гипермаркет";magaz.adress = "Сибирский тракт";magaz.tel = "88008009905";magaz.email = "metr@metro.com";
